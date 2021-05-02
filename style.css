@@ -1,0 +1,117 @@
+body {
+  background: #f2f2f2;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+#header {
+  height: 100px;
+  width: 100%;
+  background-color: rebeccapurple;
+  position: fixed;
+  top: 0;
+  right: 0;
+  line-height: 100px;
+  text-align: center;
+}
+
+#header span {
+  color: white;
+  font-size: 2em;
+}
+
+#content {
+  margin-top: 100px;
+  height: calc(100vh - 100px);
+  padding-top: 1rem;
+}
+
+#content div.block {
+  width: 800px;
+  max-width: calc(100vw - 8rem);
+  background: white;
+  padding: 2rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+#content div#container {
+  position: relative;
+  height: 225px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#content div#container #img {
+  display: block;
+  height: 100%;
+  width: auto;
+  border-left: 9px solid #fff;
+}
+
+#content div#container div#reflection {
+  background: url(reflection.svg);
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#content .col {
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+}
+
+#content .col:nth-child(n + 1) {
+  margin-left: 4px;
+}
+
+#content input#file {
+  position: absolute;
+  height: 47px;
+  max-width: 198px;
+  top: 152px;
+  opacity: 0;
+}
+
+#content input#file:hover {
+  cursor: pointer;
+}
+
+#content input#file:hover + label {
+  background: #905ac7;
+}
+
+#content input#file + label {
+  color: white;
+  background-color: rebeccapurple;
+  padding: 0.9rem 1rem;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+
+#content input#file + label svg {
+  fill: white;
+  padding-right: 5px;
+}
+
+#footer {
+  height: 100px;
+  width: 100%;
+  background-color: #361e4e;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+}
+
+#footer a {
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */
