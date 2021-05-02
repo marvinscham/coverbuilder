@@ -99,4 +99,12 @@ function rgbToHex(r, g, b) {
 
 //##########################################################################################################################
 
+const custom = document.getElementById("custom");
+
+custom.addEventListener("keyup", function () {
+    if (custom.value.length == 7) {
+        document.getElementById("img").style.borderColor = custom.value;
+    }
+});
+
 renew();

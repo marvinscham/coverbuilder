@@ -21,6 +21,11 @@ body {
   font-size: 2em;
 }
 
+h1 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
 #content {
   margin-top: 100px;
   min-height: calc(100vh - 100px);
@@ -82,6 +87,20 @@ body {
 
 #content .col:nth-child(n + 2) {
   margin-left: 4px;
+}
+
+#content #customcol {
+  margin-top: 1rem;
+}
+
+#content #customcol input {
+  padding: 0.5rem;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+
+#content #customcol input:invalid {
+  background-color: lightcoral;
 }
 
 #content input#file {

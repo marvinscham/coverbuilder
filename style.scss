@@ -21,6 +21,11 @@ body {
   }
 }
 
+h1 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
 #content {
   margin-top: 100px;
   min-height: calc(100vh - 100px);
@@ -78,6 +83,19 @@ body {
 
     &:nth-child(n + 2) {
       margin-left: 4px;
+    }
+  }
+
+  #customcol {
+    margin-top: 1rem;
+
+    input {
+      padding: 0.5rem;
+      transition: background-color 0.2s ease;
+
+      &:invalid {
+        background-color: lightcoral;
+      }
     }
   }
 
