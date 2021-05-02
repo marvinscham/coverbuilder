@@ -101,9 +101,12 @@ h1 {
 
   input#file {
     position: absolute;
-    height: 47px;
-    max-width: 198px;
-    top: 152px;
+    height: 85px;
+    max-width: calc(800px + 4rem);
+    width: calc(100% - 2rem);
+    transform: translateX(-50%);
+    left: 50%;
+    top: 116px;
     opacity: 0;
 
     &:hover {
