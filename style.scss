@@ -23,19 +23,22 @@ body {
 
 #content {
   margin-top: 100px;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   padding-top: 1rem;
 
   div.block {
     width: 800px;
-    max-width: calc(100vw - 8rem);
+    max-width: calc(100vw - 7rem);
     background: white;
     padding: 2rem;
     text-align: center;
     margin: {
       left: auto;
       right: auto;
-      top: 1rem;
+    }
+
+    &:nth-of-type(n + 2) {
+      margin-top: 1rem;
     }
   }
 
@@ -68,7 +71,7 @@ body {
     width: 70px;
     cursor: pointer;
 
-    &:nth-child(n + 1) {
+    &:nth-child(n + 2) {
       margin-left: 4px;
     }
   }
