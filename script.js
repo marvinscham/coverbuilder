@@ -1,16 +1,20 @@
 const colorThief = new ColorThief();
 
-function renewReflection() {
+function renew() {
     setTimeout(function () {
-        var ref = document.getElementById("reflection");
-        var img = document.getElementById("img");
-        var container = document.getElementById("container");
-
-        ref.style.width = img.offsetWidth + "px";
-        ref.style.marginLeft = container.offsetWidth / 2 - img.offsetWidth / 2 + "px";
-        img.style.marginLeft = container.offsetWidth / 2 - img.offsetWidth / 2 + "px";
-        reload_palette();
+        adjustReflection();
+        getAndSetColors();
     }, 100);
+}
+
+function adjustReflection() {
+    var ref = document.getElementById("reflection");
+    var img = document.getElementById("img");
+    var container = document.getElementById("container");
+
+    ref.style.width = img.offsetWidth + "px";
+    ref.style.marginLeft = container.offsetWidth / 2 - img.offsetWidth / 2 + "px";
+    img.style.marginLeft = container.offsetWidth / 2 - img.offsetWidth / 2 + "px";
 }
 
 function copyToClipboard(string) {
@@ -25,44 +29,63 @@ function copyToClipboard(string) {
     document.body.removeChild(el);
 }
 
-function reload_palette() {
+function getAndSetDominantColor() {
     const img = document.getElementById("img");
-    var dc = [0, 0, 0];
-    var palette = [[0, 0, 0]];
+    var rgbCol;
 
     if (img.complete) {
-        dc = colorThief.getColor(img);
-        palette = colorThief.getPalette(img);
+        rgbCol = colorThief.getColor(img);
     } else {
         img.addEventListener('load', function () {
-            dc = colorThief.getColor(img);
-            palette = colorThief.getPalette(img);
-        })
+            rgbCol = colorThief.getColor(img);
+        });
     }
 
-    document.getElementById("dc").style.backgroundColor = rgbToHex(dc[0], dc[1], dc[2]);
-    document.getElementById("dc").title = rgbToHex(dc[0], dc[1], dc[2]);
-    img.style.borderColor = rgbToHex(dc[0], dc[1], dc[2]);
+    var hexCol = rgbToHex(rgbCol[0], rgbCol[1], rgbCol[2]);
+    var dc = document.getElementById("dc");
 
-    var tag;
-    var el = document.getElementById("palette");
-    el.innerHTML = "";
+    dc.style.backgroundColor = hexCol;
+    dc.title = hexCol;
+    img.style.borderColor = hexCol;
+}
 
-    palette.forEach(function (a) {
+function getAndSetPalette() {
+    const img = document.getElementById("img");
+    var tag, rgbCols, hexCol;
+    var palette = document.getElementById("palette");
+
+    palette.innerHTML = "" // Remove old palette
+
+    if (img.complete) {
+        rgbCols = colorThief.getPalette(img);
+    } else {
+        img.addEventListener('load', function () {
+            rgbCols = colorThief.getPalette(img);
+        });
+    }
+
+    rgbCols.forEach(function (c) {
+        hexCol = rgbToHex(c[0], c[1], c[2]);
+
         tag = document.createElement("div");
         tag.classList.add("col");
-        tag.style.backgroundColor = rgbToHex(a[0], a[1], a[2]);
-        tag.title = rgbToHex(a[0], a[1], a[2]);
-        el.appendChild(tag);
+        tag.style.backgroundColor = hexCol;
+        tag.title = hexCol;
+        palette.appendChild(tag);
     });
 
     var cols = document.getElementsByClassName("col");
-    [...cols].forEach(function (c) {
-        c.addEventListener('click', function () {
-            copyToClipboard(c.title);
-            img.style.borderColor = c.title;
+    [...cols].forEach(function (co) {
+        co.addEventListener('click', function () {
+            copyToClipboard(co.title);
+            img.style.borderColor = co.title;
         });
     });
+}
+
+function getAndSetColors() {
+    getAndSetDominantColor();
+    getAndSetPalette();
 }
 
 function componentToHex(c) {
@@ -76,4 +99,4 @@ function rgbToHex(r, g, b) {
 
 //##########################################################################################################################
 
-renewReflection();
+renew();
