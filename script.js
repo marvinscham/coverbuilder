@@ -102,7 +102,14 @@ function rgbToHex(r, g, b) {
 
 const file = document.getElementById("file");
 file.addEventListener("change", function () {
-    document.getElementById('img').src = window.URL.createObjectURL(this.files[0]);
+    var format = file.value.split(".")[1].toLowerCase();
+    var allowedFormats = ["png", "jpg"];
+
+    if (allowedFormats.includes(format)) {
+        document.getElementById('img').src = window.URL.createObjectURL(this.files[0]);
+    } else {
+        alert("Unsupported file format: " + format + "\nSupported formats: " + allowedFormats);
+    }
     renew();
 });
 
@@ -116,12 +123,18 @@ body.addEventListener("dragover", function () {
     });
 });
 
-
 const custom = document.getElementById("custom");
 custom.addEventListener("keyup", function () {
     if (custom.value.length == 7) {
+        custom.value = custom.value.toLowerCase();
         document.getElementById("img").style.borderColor = custom.value;
+        copyToClipboard(custom.value);
     }
+});
+custom.addEventListener("dblclick", function () {
+    custom.value = "#ffffff";
+    document.getElementById("img").style.borderColor = custom.value;
+    copyToClipboard(custom.value);
 });
 
 renew();
