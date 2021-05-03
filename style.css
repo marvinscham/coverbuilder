@@ -157,12 +157,12 @@ h1 {
 }
 
 #footer {
-  height: 100px;
   width: 100%;
   background-color: #361e4e;
   color: white;
   text-align: center;
-  line-height: 100px;
+  padding: 2rem 0;
+  line-height: 2rem;
 }
 
 #footer a {
