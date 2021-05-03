@@ -47,6 +47,7 @@ function getAndSetDominantColor() {
     dc.style.backgroundColor = hexCol;
     dc.title = hexCol;
     img.style.borderColor = hexCol;
+    copyToClipboard(hexCol);
 }
 
 function getAndSetPalette() {
@@ -99,8 +100,24 @@ function rgbToHex(r, g, b) {
 
 //##########################################################################################################################
 
-const custom = document.getElementById("custom");
+const file = document.getElementById("file");
+file.addEventListener("change", function () {
+    document.getElementById('img').src = window.URL.createObjectURL(this.files[0]);
+    renew();
+});
 
+const body = document.getElementsByTagName("body")[0];
+body.addEventListener("dragover", function () {
+    file.classList.add("show");
+});
+["dragleave", "drop"].forEach(function (a) {
+    file.addEventListener(a, function () {
+        file.classList.remove("show");
+    });
+});
+
+
+const custom = document.getElementById("custom");
 custom.addEventListener("keyup", function () {
     if (custom.value.length == 7) {
         document.getElementById("img").style.borderColor = custom.value;

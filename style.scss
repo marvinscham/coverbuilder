@@ -14,6 +14,7 @@ body {
   right: 0;
   line-height: 100px;
   text-align: center;
+  z-index: 2;
 
   span {
     color: white;
@@ -100,14 +101,44 @@ h1 {
   }
 
   input#file {
-    position: absolute;
-    height: 85px;
-    max-width: calc(800px + 4rem);
-    width: calc(100% - 2rem);
-    transform: translateX(-50%);
-    left: 50%;
-    top: 116px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    visibility: hidden;
     opacity: 0;
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &:after {
+      content: 'Drop cover image anywhere...';
+      color: white;
+      text-shadow: rgb(0, 0, 0) 2px 0px 0px,
+        rgb(0, 0, 0) 1.75517px 0.958851px 0px,
+        rgb(0, 0, 0) 1.0806px 1.68294px 0px,
+        rgb(0, 0, 0) 0.141474px 1.99499px 0px,
+        rgb(0, 0, 0) -0.832294px 1.81859px 0px,
+        rgb(0, 0, 0) -1.60229px 1.19694px 0px,
+        rgb(0, 0, 0) -1.97998px 0.28224px 0px,
+        rgb(0, 0, 0) -1.87291px -0.701566px 0px,
+        rgb(0, 0, 0) -1.30729px -1.5136px 0px,
+        rgb(0, 0, 0) -0.421592px -1.95506px 0px,
+        rgb(0, 0, 0) 0.567324px -1.91785px 0px,
+        rgb(0, 0, 0) 1.41734px -1.41108px 0px,
+        rgb(0, 0, 0) 1.92034px -0.558831px 0px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+    }
 
     &:hover {
       cursor: pointer;
