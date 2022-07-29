@@ -12,12 +12,8 @@ jobs:
       - uses: actions/checkout@v2
         name: Check out current commit
           
-      - uses: suisei-cn/actions-download-file@v1
-        id: colorthief-js
-        name: Download JS file for color-thief
-        with:
-          url: (https://raw.githubusercontent.com/lokesh/color-thief/master/src/color-thief.js)
-          auto-match: true
+      - name: Download minified color-thief
+        run: curl https://raw.githubusercontent.com/lokesh/color-thief/master/dist/color-thief.min.js -o color-thief.js
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.4
