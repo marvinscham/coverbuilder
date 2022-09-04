@@ -16,7 +16,6 @@ body {
   text-align: center;
   z-index: 2;
 }
-
 #header span {
   color: white;
   font-size: 2em;
@@ -33,7 +32,6 @@ h1 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
 #content div.block {
   width: 800px;
   max-width: calc(100vw - 7rem);
@@ -43,28 +41,22 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
-
 #content div.block:nth-of-type(n + 2) {
   margin-top: 1rem;
 }
-
 #content div#container {
   position: relative;
   height: 225px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
-
 #content div#container #img {
   display: block;
   height: 100%;
   width: auto;
   border-left: 9px solid #fff;
-  -webkit-transition: margin 0.5s ease, border-color 0.2s ease;
   transition: margin 0.5s ease, border-color 0.2s ease;
 }
-
 #content div#container div#reflection {
   background: url(reflection.svg);
   background-size: cover;
@@ -72,38 +64,29 @@ h1 {
   bottom: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: margin 0.5s ease;
   transition: margin 0.5s ease;
 }
-
 #content .col {
   display: inline-block;
   height: 70px;
   width: 70px;
   cursor: pointer;
-  -webkit-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
   background-color: #fff;
 }
-
-#content .col:nth-child(n + 2) {
+#content .col:nth-child(n+2) {
   margin-left: 4px;
 }
-
 #content #customcol {
   margin-top: 1rem;
 }
-
 #content #customcol input {
   padding: 0.5rem;
-  -webkit-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
 }
-
 #content #customcol input:invalid {
   background-color: lightcoral;
 }
-
 #content input#file {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
@@ -112,45 +95,36 @@ h1 {
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
   visibility: hidden;
   opacity: 0;
 }
-
 #content input#file.show {
   visibility: visible;
   opacity: 1;
 }
-
 #content input#file:after {
-  content: 'Drop cover image anywhere...';
+  content: "Drop cover image anywhere...";
   color: white;
-  text-shadow: black 2px 0px 0px, black 1.75517px 0.95885px 0px, black 1.0806px 1.68294px 0px, black 0.14147px 1.99499px 0px, black -0.83229px 1.81859px 0px, black -1.60229px 1.19694px 0px, black -1.97998px 0.28224px 0px, black -1.87291px -0.70157px 0px, black -1.30729px -1.5136px 0px, black -0.42159px -1.95506px 0px, black 0.56732px -1.91785px 0px, black 1.41734px -1.41108px 0px, black 1.92034px -0.55883px 0px;
+  text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;
   position: fixed;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   font-size: 2rem;
 }
-
 #content input#file:hover {
   cursor: pointer;
 }
-
 #content input#file:hover + label {
-  background: #905ac7;
+  background: rgb(144, 90, 199);
 }
-
 #content input#file + label {
   color: white;
   background-color: rebeccapurple;
   padding: 0.9rem 1rem;
-  -webkit-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
 }
-
 #content input#file + label svg {
   fill: white;
   padding-right: 5px;
@@ -158,14 +132,12 @@ h1 {
 
 #footer {
   width: 100%;
-  background-color: #361e4e;
+  background-color: rgb(54, 30, 78);
   color: white;
   text-align: center;
   padding: 2rem 0;
   line-height: 2rem;
 }
-
 #footer a {
   color: white;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
