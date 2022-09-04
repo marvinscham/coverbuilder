@@ -1,0 +1,27 @@
+name: Auto PR updated color-thief
+
+on:
+  schedule: [{cron: "0 4 1 * *"}]
+  workflow_dispatch:
+
+jobs:
+  push_to_branch_and_create_pr:
+    name: Create PR for updated color-thief
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out current commit
+          
+      - name: Download minified color-thief
+        run: curl https://raw.githubusercontent.com/lokesh/color-thief/master/dist/color-thief.min.js -o color-thief.js
+          
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4.0.4
+        with:
+          commit-message: Update color-thief
+          title: Update color-thief
+          body: |
+            This is an automated PR.
+            <sub>[workflow](https://github.com/marvinscham/coverbuilder/blob/master/.github/workflows/main.yml).</sub>
+          branch: update-assets
+          branch-suffix: "random"
