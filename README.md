@@ -1,6 +1,6 @@
 <div align="center">
   
-![Logo](https://github.com/marvinscham/schmoekerei-icons/raw/main/icons/coverbuilder.png)
+![Logo](favicon.png)
   
 # Cover Builder
   
